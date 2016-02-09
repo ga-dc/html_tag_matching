@@ -78,7 +78,7 @@ li
   border:1px dotted #ccc;
   border-radius:5px;
 }
-#shuffle
+#button
 {
   display:block;
   width:200px;
@@ -91,7 +91,7 @@ li
   opacity:0.1;
   cursor:pointer;
 }
-#shuffle:hover
+#button:hover
 {
   opacity:0.4;
 }

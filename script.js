@@ -17,22 +17,13 @@ var Matcher = {
     }
   },
   place : function(column, el, shuffle){
+    var li, i, l = column.length;
     el = document.getElementById(el);
     el.innerHTML = "";
-    column.reverse();
-    for(var t = column.length - 1; t >= 0; t--){
-      var li = document.createElement("LI");
-      li.innerText = column[t];
+    for(i = 0; i < l; i++){
+      li = document.createElement("LI");
+      li.innerText = column[i];
       el.appendChild(li);
-    }
-  },
-  shuffle : function(col){
-    var i = col.length, v, r;
-    while(i !== 0){
-      r = Math.floor(Math.random() * i--);
-      v = col[i];
-      col[i] = col[r];
-      col[r] = v;
     }
   }
 }
@@ -47,9 +38,20 @@ window.onload = function(){
     }
   });
   Matcher.place(Matcher.col.a, "tags");
-  Matcher.place(Matcher.col.b, "desc");
-  document.getElementById("shuffle").addEventListener("click", function(){
-    Matcher.shuffle(Matcher.col.b);
+  Matcher.place(shuffle(Matcher.col.b), "desc");
+  document.getElementById("button").addEventListener("click", function(){
     Matcher.place(Matcher.col.b, "desc");
   });
+
+  function shuffle(array){
+    var i = array.length, v, r;
+    array = array.slice();
+    while(i !== 0){
+      r = Math.floor(Math.random() * i--);
+      v = array[i];
+      array[i] = array[r];
+      array[r] = v;
+    }
+    return array;
+  }
 }
