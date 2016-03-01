@@ -4,7 +4,7 @@ var Matcher = {
     b : []
   },
   parse : function(source){
-    var src = source.innerText.trim().split("\n").reverse();
+    var src = source.textContent.trim().split("\n").reverse();
     for(var t = src.length - 1; t >= 0; t--){
       var line = src[t].split(",");
       this.col.a.push(line[0]);
@@ -22,7 +22,7 @@ var Matcher = {
     el.innerHTML = "";
     for(i = 0; i < l; i++){
       li = document.createElement("LI");
-      li.innerText = column[i];
+      li.textContent = column[i];
       el.appendChild(li);
     }
   }
